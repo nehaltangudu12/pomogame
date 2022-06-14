@@ -12,9 +12,9 @@ const green = '4aec8c'
 function Timer() {
     const settingsInfo = useContext(SettingsContext)
 
-    const [isPaused, setIsPaused] = useState(false);
+    const [isPaused, setIsPaused] = useState(true);
     const [mode, setMode] = useState('work'); // work - break - null
-    const [secondsLeft, setSecondsLeft] = useState(0);
+    const [secondsLeft, setSecondsLeft] = useState(settingsInfo.workMinutes * 60);
 
     const secondsLeftRef = useRef(secondsLeft);
     const isPausedRef = useRef(isPaused);
@@ -26,8 +26,8 @@ function Timer() {
         setMode(nextMode);
         modeRef.current = nextMode;
 
-        setSecondsLeft((nextMode === 'work') ? settingsInfo.workMinutes : settingsInfo.breakMinutes);
-        secondsLeftRef.current = (nextMode === 'work') ? settingsInfo.workMinutes : settingsInfo.breakMinutes;
+        setSecondsLeft((nextMode === 'work') ? settingsInfo.workMinutes * 60 : settingsInfo.breakMinutes * 60);
+        secondsLeftRef.current = (nextMode === 'work') ? settingsInfo.workMinutes * 60 : settingsInfo.breakMinutes * 60;
     }
 
     function tick() {
@@ -65,11 +65,13 @@ function Timer() {
         <div>
             <CircularProgressbar value={percentage} text={minutes + ":" + seconds} styles={buildStyles({
                 textColor: '#fff',
-                pathColor: red,
+                pathColor: (mode === 'work') ? red : green,
                 trailColor: 'rgba(255,255,255,.2)',
             })} />
             <div style={{marginTop: '20px'}}>
-                {isPaused ? <PlayButton/> : <PauseButton/>}
+                {isPaused 
+                ? <PlayButton onClick={() => {setIsPaused(false); isPausedRef.current = false}}/> 
+                : <PauseButton onClick={() => {setIsPaused(true); isPausedRef.current = true}}/>}
             </div>
             <div style={{marginTop: '20px'}}>
                 <SettingsButton onClick={()=>settingsInfo.setShowSettings(true)}/>
