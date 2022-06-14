@@ -9,6 +9,7 @@ import SettingsContext from './SettingsContext';
 const red = '#f54e4e'
 const green = '#4aec8c'
 
+
 function Timer() {
     const settingsInfo = useContext(SettingsContext)
 
@@ -67,7 +68,7 @@ function Timer() {
     return (
         <div>
             <div>
-                <h3>Combo: {Math.floor(comboRef.current)}</h3>
+                <h2 style={{color : ((mode === 'work') ? green : red)}}>Combo: {Math.floor(comboRef.current)}</h2>
             </div>
             <CircularProgressbar value={percentage} text={minutes + ":" + seconds} styles={buildStyles({
                 textColor: '#fff',

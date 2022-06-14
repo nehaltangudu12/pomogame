@@ -6,11 +6,12 @@ import Timer from "./Timer";
 
 function App() {
   const [showSettings, setShowSettings] = useState(false);
-  const [workMinutes, setWorkMinutes] = useState(45);
+  const [workMinutes, setWorkMinutes] = useState(30);
   const [breakMinutes, setBreakMinutes] = useState(15);
 
   return (
     <main>
+      <h1>Pomogame</h1>
       <SettingsContext.Provider value={{
         workMinutes : workMinutes,
         breakMinutes : breakMinutes,
