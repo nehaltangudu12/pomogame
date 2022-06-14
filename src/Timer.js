@@ -7,7 +7,7 @@ import SettingsButton from './SettingsButton';
 import SettingsContext from './SettingsContext';
 
 const red = '#f54e4e'
-const green = '4aec8c'
+const green = '#4aec8c'
 
 function Timer() {
     const settingsInfo = useContext(SettingsContext)
@@ -19,6 +19,8 @@ function Timer() {
     const secondsLeftRef = useRef(secondsLeft);
     const isPausedRef = useRef(isPaused);
     const modeRef = useRef(mode);
+    let combo = 0;
+    const comboRef = useRef(combo);
 
     function switchMode() {
         const nextMode = (modeRef.current === 'work') ? 'break' : 'work';
@@ -45,7 +47,8 @@ function Timer() {
         const interval = setInterval(() => {
             if (isPausedRef.current){return;}
             if (secondsLeftRef.current === 0) {
-                switchMode();
+                switchMode();;
+                comboRef.current += 0.5;
             }
             tick();
         }, 1000);
@@ -58,14 +61,17 @@ function Timer() {
         : settingsInfo.breakMinutes * 60;
     const percentage = Math.round(secondsLeft / totalSeconds  * 100)
     const minutes = Math.floor(secondsLeft / 60); // Want to round minutes
+
     let seconds = secondsLeft % 60;
     if (seconds < 10) seconds = '0' + seconds;
-
     return (
         <div>
+            <div>
+                <h3>Combo: {Math.floor(comboRef.current)}</h3>
+            </div>
             <CircularProgressbar value={percentage} text={minutes + ":" + seconds} styles={buildStyles({
                 textColor: '#fff',
-                pathColor: (mode === 'work') ? red : green,
+                pathColor: (mode === 'work') ? green : red,
                 trailColor: 'rgba(255,255,255,.2)',
             })} />
             <div style={{marginTop: '20px'}}>
