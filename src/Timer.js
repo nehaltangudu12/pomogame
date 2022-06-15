@@ -52,7 +52,7 @@ function Timer() {
                 comboRef.current += 0.5;
             }
             tick();
-        }, 1000);
+        }, 100);
 
         return () => clearInterval(interval);
     }, [settingsInfo]);
@@ -70,11 +70,13 @@ function Timer() {
             <div>
                 <h2 style={{color : ((mode === 'work') ? green : red)}}>Combo: {Math.floor(comboRef.current)}</h2>
             </div>
+            <div>
             <CircularProgressbar value={percentage} text={minutes + ":" + seconds} styles={buildStyles({
                 textColor: '#fff',
                 pathColor: (mode === 'work') ? green : red,
                 trailColor: 'rgba(255,255,255,.2)',
             })} />
+            </div>
             <div style={{marginTop: '20px'}}>
                 {isPaused 
                 ? <PlayButton onClick={() => {setIsPaused(false); isPausedRef.current = false}}/> 

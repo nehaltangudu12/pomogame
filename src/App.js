@@ -11,7 +11,7 @@ function App() {
 
   return (
     <main>
-      <h1>Pomogame</h1>
+      <h1 style={{fontSize: '300%'}}>Pomogame</h1>
       <SettingsContext.Provider value={{
         workMinutes : workMinutes,
         breakMinutes : breakMinutes,
