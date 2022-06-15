@@ -48,11 +48,13 @@ function Timer() {
         const interval = setInterval(() => {
             if (isPausedRef.current){return;}
             if (secondsLeftRef.current === 0) {
-                switchMode();;
-                comboRef.current += 0.5;
+                switchMode();
+                if (modeRef.current === 'work') {  
+                    comboRef.current += 1;
+                }
             }
             tick();
-        }, 100);
+        }, 1000);
 
         return () => clearInterval(interval);
     }, [settingsInfo]);
@@ -67,8 +69,8 @@ function Timer() {
     if (seconds < 10) seconds = '0' + seconds;
     return (
         <div>
-            <div>
-                <h2 style={{color : ((mode === 'work') ? green : red)}}>Combo: {Math.floor(comboRef.current)}</h2>
+            <div style={{textShadow: '2px 2px black'}}>
+                <h2 className='comboMeter' style={{color : ((mode === 'work') ? green : red)}}>Combo: {Math.floor(comboRef.current)}</h2>
             </div>
             <div>
             <CircularProgressbar value={percentage} text={minutes + ":" + seconds} styles={buildStyles({

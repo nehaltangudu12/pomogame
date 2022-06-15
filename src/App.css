@@ -16,6 +16,23 @@ main {
 }
 
 
+@keyframes comboo {
+  from {
+    font-size: 100%;
+  }
+
+  to {
+    font-size: 200%;
+  }
+}
+
+.comboMeter {
+  font-size: 200%;
+  animation-name: comboo;
+  animation-duration: 1s;
+}
+
+
 button {
   background-color: transparent;
   color: rgba(255, 255, 255, 0.8);
