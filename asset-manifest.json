@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pomogame/static/css/main.d41f0b0a.css",
-    "main.js": "/pomogame/static/js/main.828ba6de.js",
+    "main.css": "/pomogame/static/css/main.d48d6179.css",
+    "main.js": "/pomogame/static/js/main.2c2abd0c.js",
     "static/js/787.a8de37b6.chunk.js": "/pomogame/static/js/787.a8de37b6.chunk.js",
     "index.html": "/pomogame/index.html",
-    "main.d41f0b0a.css.map": "/pomogame/static/css/main.d41f0b0a.css.map",
-    "main.828ba6de.js.map": "/pomogame/static/js/main.828ba6de.js.map",
+    "main.d48d6179.css.map": "/pomogame/static/css/main.d48d6179.css.map",
+    "main.2c2abd0c.js.map": "/pomogame/static/js/main.2c2abd0c.js.map",
     "787.a8de37b6.chunk.js.map": "/pomogame/static/js/787.a8de37b6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d41f0b0a.css",
-    "static/js/main.828ba6de.js"
+    "static/css/main.d48d6179.css",
+    "static/js/main.2c2abd0c.js"
   ]
 }
