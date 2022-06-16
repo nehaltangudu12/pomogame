@@ -10,8 +10,8 @@ function App() {
   const [breakMinutes, setBreakMinutes] = useState(15);
 
   return (
-    <main>
-      <h1 style={{fontSize: '300%'}}>Pomogame</h1>
+    <main style={{margin:'100$'}}>
+      <h1 style={{fontSize: '200%'}}>Pomogame</h1>
       <SettingsContext.Provider value={{
         workMinutes : workMinutes,
         breakMinutes : breakMinutes,
@@ -22,6 +22,15 @@ function App() {
       }}>
         {showSettings ? <Settings/> : <Timer/>}
       </SettingsContext.Provider>
+      <div style={{position: 'absolute', top:'40%',right:'15%'}}>
+        <h3 style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', padding:'10px', borderRadius:'5px'}}>
+          <a href='https://github.com/nehaltangudu12'>Github Profile</a>
+        </h3>
+      </div>
+      <div style={{position: 'fixed', top:'40%',left:'10%'}}>
+        <h3>Gamify Productivity!</h3>
+        <p>Welcome to Pomogame!</p>
+      </div>
     </main>
   );
 }

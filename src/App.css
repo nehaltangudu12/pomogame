@@ -3,10 +3,22 @@
   --green: #4aec8c;
 }
 
+p {
+  font:bolder;
+  font-size: larger;
+}
+
 body {
   background-color: #30384b;
   color: #eee;
+  font-family: 'Press Start 2P', cursive;
+} 
+
+a {
+  color: #eee;
+  text-decoration: none;
 }
+
 
 main {
   padding-top: 10px;
@@ -28,8 +40,6 @@ main {
 
 .comboMeter {
   font-size: 200%;
-  animation-name: comboo;
-  animation-duration: 1s;
 }
 
 
@@ -39,6 +49,7 @@ button {
   border: 0;
   display: inline-block;
   width: 100px;
+  font-family: 'Press Start 2P', cursive;;
 }
 
 button.with-text {

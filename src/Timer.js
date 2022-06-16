@@ -70,13 +70,14 @@ function Timer() {
     return (
         <div>
             <div style={{textShadow: '2px 2px black'}}>
-                <h2 className='comboMeter' style={{color : ((mode === 'work') ? green : red)}}>Combo: {Math.floor(comboRef.current)}</h2>
+                <h2 className='comboMeter' style={{color : ((mode === 'work') ? green : red)}}>Combo:{Math.floor(comboRef.current)}</h2>
             </div>
             <div>
             <CircularProgressbar value={percentage} text={minutes + ":" + seconds} styles={buildStyles({
                 textColor: '#fff',
                 pathColor: (mode === 'work') ? green : red,
                 trailColor: 'rgba(255,255,255,.2)',
+                textSize: '75%'
             })} />
             </div>
             <div style={{marginTop: '20px'}}>

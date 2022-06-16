@@ -7,7 +7,7 @@ import './slider.css'
 function Settings(props) {
     const settingsInfo = useContext(SettingsContext);
     return(
-        <div style={{textAlign: "center"}}><h1>Settings</h1>
+        <div style={{textAlign: "center", margin:'auto'}}><h1>Settings</h1>
             <label>work minutes: {settingsInfo.workMinutes}:00</label>
             <ReactSlider
                 className={"slider"}
